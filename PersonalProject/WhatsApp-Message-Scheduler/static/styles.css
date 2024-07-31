@@ -1,0 +1,129 @@
+h2{
+  text-align:center;
+  font-family:sans-serif;
+}
+table {
+  border-collapse: collapse;
+  width:100%;
+  font-family:sans-serif;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+  width:auto;
+}
+
+.message-name{
+  width: 15%;
+}
+
+.message-recipient {
+  width: 15%;
+}
+
+.message-text {
+  width: 40%;
+}
+
+.message-datetime {
+  width: 15%;
+}
+
+.message-countdown {
+  width: 15%;
+}
+
+.form-container {
+  width: 90vw;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-family:sans-serif;
+}
+
+form label {
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form input[type="number"],
+form select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 16px;
+  width: 98%;
+}
+
+form select {
+  height: 40px;
+  appearance: none;
+  background-color: white;
+}
+
+form button[type="submit"], .new-recipient {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #0084ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover, .new-recipient:hover {
+  background-color: #0073e6;
+}
+.new-recipient{
+  text-align: center;
+  border: 1px solid #d4d4d4;
+}
+
+.autocomplete-items, .autocomplete-items-country {
+  position: relative;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+
+}
+
+.autocomplete-items div, .autocomplete-items-country div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover, .autocomplete-items-country div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+  #maximize-button {
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    background: #fff;
+  }
+  #maximize-button i {
+    font-size: 18px;
+  }

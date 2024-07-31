@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Message Sender</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+	<script src="{{ url_for('static',filename='countdown.js') }}"></script>
+    <script src="{{ url_for('static',filename='contacts.js') }}"></script>
+    <script src="{{ url_for('static',filename='names.js') }}"></script>
+    <script src="{{ url_for('static',filename='countries.js') }}"></script>
+    <script src="{{ url_for('static',filename='datetime.js') }}"></script>
+    <script src="{{ url_for('static',filename='script.js') }}"></script>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+  </head>
+  <body>
+
+    <h2 id="maximize-button">Messages</h2>
+    <table id="message-table" >
+      <tr>
+        <th class="message-name">Name</th>
+        <th class="message-recipient">Phone</th>
+        <th class="message-text">Message</th>
+        <th class="message-datetime">Date Time</th>
+        <th class="message-countdown">Countdown</th>
+      </tr>
+      {% for message_info in messages %}
+      <tr>
+        <td class="message-name"></td>
+        <td class="message-recipient">{{ message_info.recipient }}</td>
+        <td class="message-text">{{ message_info.message }}</td>
+        <td class="message-datetime">{{ message_info.formatted_datetime }}</td>
+        <td class="message-countdown"></td>
+      </tr>
+      {% endfor %}
+    </table>
+    <h2>New Message</h2>
+    <div class="form-container">
+      <div id="other-recipient" style="display:none">
+        <p>Recipients:</p>
+        <ul>
+        </ul>
+      </div>
+      <form action="/add" method="POST">
+        <!-- The input that will give suggestions -->
+        <label class="recipient-name-label">Recipient: <input type="text" name="recipient-name" id="recipient-name" /></label>
+        <div class="autocomplete-items" id="autocomplete-items"></div>
+        <br />
+        <!-- The input that will contain the phone number -->
+        <label id="phone-label">Phone Number: <input type="text" name="recipient[]" id="recipient-number" class="recipient-number"/></label>
+        <div class="new-recipient" id="new-recipient">Add Another</div><br />
+        <label>Message: <input type="text" name="message" /></label>
+        <label>Date: <input type="date" name="date" id="input-date" /></label>
+        <label>Time: <input type="time" name="time" id="input-time" /></label>
+        <label>Repeat Unit:</label>
+        <select name="repeat_unit">
+          <option value="n" selected>None</option>
+          <option value='y'>Year</option>
+          <option value='m'>Month</option>
+          <option value='w'>Week</option>
+          <option value='d'>Day</option>
+          <option value='hol'>Holiday</option>
+        </select><br />
+        <label style="display: none">Country:
+          <input type="text" name="country" id="county" class="country">
+          <div class="autocomplete-items-country" id="autocomplete-items-country"></div>
+        </label>
+        <input name="country-code" id="country-code" class="country-code" style="display: none">
+        <label style="display: none">Holiday:
+        <select name="holiday" id="holiday" class="holiday"></select>
+        </label>
+        <label style="display: none">Repeat: <input type="number" name="repeat" value="0" /></label>
+        <button type="submit">Add Message</button>
+      </form>
+    </div>
+  </body>
+</html>
