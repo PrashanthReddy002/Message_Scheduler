@@ -1,19 +1,13 @@
-import atexit
 import csv
 import datetime
 import hashlib
 import os
-import random
 import threading
 import time
 import webbrowser as web
-
 import pyautogui
-
 import Utils
-
 import pywhatkit as kit
-
 from Message import Message
 
 class MessageSender:
