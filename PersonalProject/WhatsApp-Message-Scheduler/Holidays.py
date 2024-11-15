@@ -10,7 +10,7 @@ class Holidays:
         :param country_code: The ISO 3166-1 alpha-2 country code of the country to get the holidays for (e.g. "GB" for the United Kingdom)
         :param year: The year to get the holidays for.
         """
-        self.API_KEY = open("data/calendarific_api_key.dat", "r").read()
+        self.API_KEY = "uQ91rUc0rOw3OBigmt5PYAkkhtg21tQv"
         self.country_code = country_code
         self.year = year
         self.holidays = None
